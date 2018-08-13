@@ -1,0 +1,140 @@
+<!--pages/exchange/exchange.wxml-->
+<!-- 引入模版结构 -->
+<import src="/template/template.wxml" />
+<view class='container'>
+  <!-- 跑马灯 -->
+  <swiper class='lampList' autoplay='true' interval='3000' duration="1000" vertical="true" circular="true">
+    <block wx:for="{{lampList}}" wx:key>
+      <swiper-item>
+        <image src="{{item.avatar}}" class="slide-image" width="50" height="50" />
+        <text class='lampTitle'>{{item.nickname}}</text>
+      </swiper-item>
+    </block>
+  </swiper>
+  <!-- 轮播图  -->
+  <swiper class='adList' autoplay='true' circular='true'>
+    <block wx:for="{{imgUrls}}" wx:key>
+      <swiper-item>
+        <image src="{{item.url}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <!-- 奖品  -->
+
+  <view class='giftBox'>
+    <text class='hint'>库存每日0点更新</text>
+    <!--分享特权  -->
+    <view class='seven_day'>
+      <view class='gift_title' hidden='{{showShare}}'>
+        <image class='rect' src='../../images/rect.png'></image>
+        <text>分享特权</text>
+        <view class='invited'>今日邀请好友:
+          <text>{{invited}}</text>/20</view>
+      </view>
+      <view class='giftList'>
+        <block wx:for='{{giftList_share.list}}' wx:key>
+          <view class='giftItem'>
+            <image class='giftBg' src='../../images/giftBg.png'></image>
+            <view class='itemBox'>
+              <image src='{{item.picture}}'></image>
+              <view class='title'>{{item.title}}</view>
+              <view class='gift_detail'>
+                <view>{{item.buy_type=="1"?"步数":"步步币"}}:{{item.buy_price}}</view>
+                <view>剩余:{{item.show_stock}}</view>
+              </view>
+              <view class='exchangeBtn' bindtap='exchange' data-id='{{item.id}}' data-sign='share' data-status='{{item.show_stock==0?"false":"true"}}' data-check='{{item.pay_check}}'>
+                <image src='{{item.show_stock==0?"../../images/over.png":"../../images/exchangeBg.png"}}'></image>
+                <view>{{item.show_stock==0?"已兑完":"立即兑换"}}</view>
+              </view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+    <ad unit-id="adunit-71d177d8d2738dc9"></ad>
+    <!-- 连续7日签到特权 -->
+    <view class='seven_day'>
+      <view class='gift_title'>
+        <image class='rect' src='../../images/rect.png'></image>
+        <text>连续7日签到特权</text>
+        <view class='invited'>已连续签到:
+          <text>{{signday_7}}天</text>
+        </view>
+      </view>
+      <view class='giftList'>
+        <block wx:for='{{giftList_seven.list}}' wx:key>
+          <view class='giftItem'>
+            <image class='giftBg' src='../../images/giftBg.png'></image>
+            <view class='itemBox'>
+              <image src='{{item.picture}}'></image>
+              <view class='title'>{{item.title}}</view>
+              <view class='gift_detail'>
+                <view>{{item.buy_type=="1"?"步数":"步步币"}}:{{item.buy_price}}</view>
+                <view>剩余:{{item.show_stock}}</view>
+              </view>
+              <view class='exchangeBtn' bindtap='exchange' data-sign='seven' data-id='{{item.id}}' data-status='{{item.show_stock==0?"false":"true"}}' data-check='{{item.pay_check}}'>
+                <image src='{{item.show_stock==0?"../../images/over.png":"../../images/exchangeBg.png"}}'></image>
+                <view>{{item.show_stock==0?"已兑完":"立即兑换"}}</view>
+              </view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+    <!--连续30日签到特权  -->
+    <view class='seven_day'>
+      <view class='gift_title'>
+        <image class='rect' src='../../images/rect.png'></image>
+        <text>连续30日签到特权</text>
+        <view class='invited'>已连续签到:
+          <text>{{signday_30}}天</text>
+        </view>
+      </view>
+      <view class='giftList'>
+        <block wx:for='{{giftList_thir.list}}' wx:key>
+          <view class='giftItem'>
+            <image class='giftBg' src='../../images/giftBg.png'></image>
+            <view class='itemBox'>
+              <image src='{{item.picture}}'></image>
+              <view class='title'>{{item.title}}</view>
+              <view class='gift_detail'>
+                <view>{{item.buy_type=="1"?"步数":"步步币"}}:{{item.buy_price}}</view>
+                <view>剩余:{{item.show_stock}}</view>
+              </view>
+              <view class='exchangeBtn' bindtap='exchange' data-sign='thir' data-id='{{item.id}}' data-status='{{item.show_stock==0?"false":"true"}}' data-check='{{item.pay_check}}' data-img='{{item.picture}}' data-title='{{item.title}}'>
+                <image src='{{item.show_stock==0?"../../images/over.png":"../../images/exchangeBg.png"}}'></image>
+                <view>{{item.show_stock==0?"已兑完":"立即兑换"}}</view>
+              </view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+    <ad unit-id="adunit-2147a0a99605ead3"></ad>
+  </view>
+</view>
+
+
+<!-- 确认信息弹窗  -->
+<template is='confirm' wx:if='{{confirm}}'></template>
+
+<!-- 立即兑换步数不足弹窗   -->
+<view class='numStepbg' wx:if='{{numStep}}'>
+  <view class='numStep'>
+    <image src='../../images/numStep.png'></image>
+    <image class='closeIco' src='../../images/close.png' bindtap='stepClose'></image>
+    <image class='goodsImg' src='{{numStepInfo.img}}'></image>
+    <view class='goodsinfo'>
+      <view>{{numStepInfo.title}}</view>
+      <view>{{numStepInfo.step}}</view>
+    </view>
+    <view class='myinfo'>
+      <view>我的总步数</view>
+      <view>{{numStepInfo.myStep}}</view>
+    </view>
+    <view class='tips'>您当前步数不够</view>
+    <button class='getstep' hover-class='none' open-type='share'>
+      <image src='../../images/getstep.png'></image>
+    </button>
+  </view>
+</view>

@@ -1,0 +1,107 @@
+/* pages/involved/involved.wxss */
+
+.collection {
+  border-bottom: 1px #e5e5e5 solid;
+  padding-top: 38rpx;
+  padding-bottom: 30rpx;
+}
+
+.imageBox {
+  display: inline-block;
+  width: 30%;
+  padding-left: 40rpx;
+  box-sizing: border-box;
+}
+
+.textBox {
+  left: 5%;
+  position: relative;
+}
+
+.picture {
+  width: 150rpx;
+  height: 143rpx;
+}
+
+.myCode {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.title {
+  font-size: 32rpx;
+  margin-bottom: 8rpx;
+  color: black;
+  float: right;
+  position: absolute;
+  margin-top: 6%;
+  margin-left: 5%;
+}
+
+.time {
+  font-size: 24rpx;
+  color: #999;
+  margin-right: 40rpx;
+}
+
+.auto {
+  font-size: 24rpx;
+  color: #999;
+  margin-right: 240rpx;
+}
+
+.msg {
+  padding-left: 40rpx;
+  font-size: 32rpx;
+  margin-bottom: 10rpx;
+  color: gray;
+}
+
+.btn {
+  height: 150rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn button {
+  position: relative;
+  margin: 0 20rpx;
+}
+
+.ingImage {
+  width: 198rpx;
+  height: 62rpx;
+}
+
+.overImage {
+  width: 241rpx;
+  height: 93rpx;
+}
+
+button text {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 10rpx;
+  color: #7d7d7d;
+  font-size: 28rpx;
+}
+
+.active {
+  color: white;
+}
+
+.line {
+  height: 1px;
+  background-color: #e5e5e5;
+}
+
+.empty {
+  position: relative;
+  text-align: center;
+  padding-top: 100rpx;
+  box-sizing: border-box;
+  color: gray;
+}

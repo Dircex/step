@@ -1,0 +1,295 @@
+/**index.wxss**/
+@import "/template/template.wxss";
+
+.main {
+  width: 750rpx;
+  height: 614rpx;
+  position: relative;
+}
+
+.mainBg {
+  width: 750rpx;
+  height: 614rpx;
+}
+
+.login {
+  background-color: #17bac9;
+  font-size: 32rpx;
+  color: white;
+  display: inline-block;
+  padding: 6rpx 10rpx;
+  margin-top: 50%;
+  transform: translateY(-50%);
+  border-radius: 10rpx;
+  position: relative;
+}
+
+.myStep {
+  width: 304rpx;
+  height: 304rpx;
+  position: absolute;
+  left: 10%;
+  top: 6%;
+}
+
+.friendStep {
+  width: 225rpx;
+  height: 225rpx;
+  position: absolute;
+  right: 10%;
+  top: 12%;
+}
+
+.myStep image, .friendStep image {
+  width: 100%;
+  height: 100%;
+}
+
+.myStep view, .friendStep view {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+}
+
+.myStep view:nth-child(2) {
+  color: #3d3d3d;
+  top: 25%;
+  font-size: 30rpx;
+}
+
+.myStep view:nth-child(3) {
+  color: #10858c;
+  top: 37%;
+  font-size: 60rpx;
+}
+
+.myStep view:nth-child(4) {
+  color: #89877c;
+  top: 63%;
+  font-size: 28rpx;
+}
+
+.friendStep view:nth-child(2) {
+  color: #3d3d3d;
+  top: 20%;
+  font-size: 28rpx;
+}
+
+.friendStep view:nth-child(3) {
+  color: #10858c;
+  top: 37%;
+  font-size: 46rpx;
+}
+
+.friendStep view:nth-child(4) {
+  color: #89877c;
+  top: 63%;
+  font-size: 24rpx;
+}
+
+.present {
+  width: 100%;
+  position: absolute;
+  bottom: 32%;
+  text-align: center;
+  color: white;
+  font-size: 32rpx;
+}
+
+.present input {
+  display: inline-block;
+  width: 20%;
+  border-bottom: 1px solid white;
+  text-align: center;
+}
+
+.hint {
+  color: white;
+  font-size: 24rpx;
+  position: absolute;
+  bottom: 25%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.hint text {
+  color: #386ffd;
+}
+
+/* 
+.week_count {
+  position: absolute;
+  bottom: 23%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+   color: white;
+  font-size: 24rpx;
+} */
+
+.presentBtn {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.presentBtn image {
+  width: 438rpx;
+  height: 128rpx;
+}
+
+.presentBtn text {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 32rpx;
+  color: #78420d;
+}
+
+.success {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.success>image {
+  width: 160rpx;
+  height: 160rpx;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 15%;
+}
+
+.success>view {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+}
+
+.success>view:nth-child(2) {
+  font-size: 32rpx;
+  top: 48%;
+}
+
+.success>view:nth-child(3) {
+  font-size: 24rpx;
+  top: 58%;
+}
+
+swiper {
+  width: 100%;
+  height: 136rpx;
+}
+
+swiper image {
+  width: 100%;
+  height: 100%;
+}
+
+.gift {
+  padding: 15rpx 0;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.gift_title {
+  margin: 5rpx 0 10rpx 20rpx;
+  box-sizing: border-box;
+}
+
+.gift_title text {
+  color: #2e2e2e;
+  font-size: 28rpx;
+  margin-left: 10rpx;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.rect {
+  width: 11rpx;
+  height: 35rpx;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.giftBg {
+  width: 365rpx;
+  height: 578rpx;
+}
+
+.giftItem {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  width: 50%;
+}
+
+.itemBox {
+  width: 92%;
+  height: 100%;
+  position: absolute;
+  left: 4%;
+  top: 0;
+}
+
+.itemBox>image {
+  width: 336rpx;
+  height: 336rpx;
+  margin-top: 14rpx;
+}
+
+.title {
+  width: 90%;
+  color: #292929;
+  font-size: 26rpx;
+  font-weight: bold;
+  margin-left: 5%;
+  margin-bottom: 15rpx;
+  text-align: left;
+}
+
+.gift_detail {
+  width: 90%;
+  margin-left: 5%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 26rpx;
+  color: #c1c1c1;
+}
+
+.gift_detail>view:first-child {
+  color: #5fd0e2;
+}
+
+.exchangeBtn {
+  width: 198rpx;
+  height: 62rpx;
+  position: absolute;
+  left: 50%;
+  bottom: 46rpx;
+  transform: translateX(-50%);
+}
+
+.exchangeBtn image {
+  width: 198rpx;
+  height: 62rpx;
+}
+
+.exchangeBtn view {
+  width: 100%;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 28rpx;
+  color: white;
+}

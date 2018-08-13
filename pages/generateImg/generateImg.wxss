@@ -1,0 +1,77 @@
+/* pages/test/test.wxss */
+
+page {
+  background-color: #e3e3e3;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  background-color: #c1c1c1;
+}
+
+canvas {
+  width: 674rpx;
+  height: 990rpx;
+  margin: 0 auto;
+  margin-top: 20rpx;
+}
+
+.saveImg {
+  width: 347rpx;
+  height: 127rpx;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  top: 20rpx;
+}
+
+.saveImg image {
+  width: 347rpx;
+  height: 127rpx;
+}
+
+.saveImg text {
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 36rpx;
+  position: absolute;
+  left: 0;
+  top: 47%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+}
+
+.btn {
+  width: 100%;
+  margin-left: 4rpx;
+  margin-top: 37rpx;
+  margin-bottom: 37rpx;
+}
+
+.btn view, .btn button {
+  display: inline-block;
+  position: relative;
+  margin: 0 30rpx;
+  box-shadow: 5rxp 5rpx 5rpx;
+}
+
+.btn view image, .btn button image {
+  width: 315rpx;
+  height: 121rpx;
+}
+
+.btn view text, .btn button text {
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 32rpx;
+  position: absolute;
+  left: 0;
+  top: 20%;
+}

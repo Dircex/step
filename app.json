@@ -1,0 +1,56 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/lottery/lottery",
+    "pages/exchange/exchange",
+    "pages/money/money",
+    "pages/center/center",
+    "pages/lotteryDetail/lotteryDetail",
+    "pages/generateImg/generateImg",
+    "pages/involved/involved",
+    "pages/present/present",
+    "pages/myExchange/myExchange",
+    "pages/punch/punch",
+    "pages/strategy/strategy",
+    "pages/problem/problem",
+    "pages/AdvertisingTasks/AdvertisingTasks",
+    "pages/allfriend/allfriend",
+    "pages/lotteryProblem/lotteryProblem"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#17bac9",
+    "navigationBarTitleText": "步步赢礼",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "selectedColor": "#5ac3e0",
+    "color": "#c8c9c7",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/index.png",
+        "selectedIconPath": "images/index1.png"
+      },
+      {
+        "pagePath": "pages/exchange/exchange",
+        "text": "兑换",
+        "iconPath": "images/exchange.png",
+        "selectedIconPath": "images/exchange1.png"
+      },
+      {
+        "pagePath": "pages/lottery/lottery",
+        "text": "抽奖",
+        "iconPath": "images/lottery.png",
+        "selectedIconPath": "images/lottery1.png"
+      },
+      {
+        "pagePath": "pages/center/center",
+        "text": "我的",
+        "iconPath": "images/center.png",
+        "selectedIconPath": "images/center1.png"
+      }
+    ]
+  }
+}

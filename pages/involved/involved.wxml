@@ -1,0 +1,57 @@
+<!--pages/involved/involved.wxml-->
+<view class='content'>
+  <view class='btn'>
+    <button hover-class='none' bindtap='ing'>
+      <image class='ingImage' src='{{status=="ing"?"../../images/exchangeBg.png":"../../images/delivery.png"}}'></image>
+      <text class='{{status=="ing"?"active":" "}}'>进行中</text>
+    </button>
+    <button hover-class='none' bindtap='over'>
+      <image class='ingImage' src='{{status=="over"?"../../images/exchangeBg.png":"../../images/delivery.png"}}'></image>
+      <text class='{{status=="over"?"active":" "}}'>已结束</text>
+    </button>
+  </view>
+  <view class='line'></view>
+  <view>
+  
+  </view>
+  <view class='ing' wx:if='{{status=="ing"}}'>
+    <block wx:for="{{ingList}}" wx:key="" wx:if='{{haveIng}}'>
+      <template is="ing" data="{{...item}}"></template>
+    </block>
+    <view class='empty' hidden='{{haveIng}}'>无</view>
+  </view>
+  <view class='end' wx:else>
+    <block wx:for="{{overList}}" wx:key="" wx:if='{{haveOver}}'>
+      <template is="over" data="{{...item}}"></template>
+    </block>
+    <view class='empty' hidden='{{haveOver}}'>无</view>
+  </view>
+</view>
+<template name='ing'>
+  <view class='collection' data-id='{{aid}}' bindtap='adetail'>
+    <view class='msg'>您已参与了活动,分享好友获得更多机会</view>
+    <view class='imageBox'>
+      <image class='picture' src='{{picture}}'></image>
+      <text class='title'>{{title}}</text>
+    </view>
+    <view class='textBox'>
+        <text class='time'>{{end_time}}</text>
+        <text class='auto'>{{is_auto==1?'自动开奖':'手动开奖'}}</text>
+        <text class='myCode'>已获得抽奖码:{{num}}</text>
+    </view>
+  </view>
+</template>
+<template name='over'>
+  <view class='collection' data-id='{{aid}}' bindtap='viewOver'>
+    <view class='msg'>快去看看有没有中奖吧~</view>
+    <view class='imageBox'>
+      <image class='picture' src='{{picture}}'></image>
+      <text class='title'>{{title}}</text>
+    </view>
+    <view class='textBox'>
+        <text class='time'>{{end_time}}</text>
+        <text class='auto'>{{is_auto==1?'自动开奖':'手动开奖'}}</text>
+        <text class='myCode'>已获得抽奖码:{{num}}</text>
+    </view>
+  </view>
+</template>

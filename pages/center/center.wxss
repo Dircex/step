@@ -1,0 +1,202 @@
+/* pages/center/center.wxss */
+@import "/template/template.wxss";
+
+page {
+  background-color: #f5f5f5;
+}
+
+/* .content {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: flex-start;
+  box-sizing: border-box;
+} */
+
+.userInfo {
+  width: 750rpx;
+  height: 337rpx;
+  position: relative;
+  top: -15rpx;
+  left: 0;
+}
+
+.userInfo image {
+  width: 750rpx;
+  height: 337rpx;
+  position: absolute;
+}
+
+.avatar {
+  width: 130rpx;
+  height: 130rpx;
+  border-radius: 50%;
+  position: absolute;
+  top: 30rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  overflow: hidden;
+}
+
+.nickname {
+  position: absolute;
+  top: 180rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  font-size: 16px;
+  color: white;
+}
+
+.info {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  position: absolute;
+  bottom: 30rpx;
+}
+
+.info view {
+  font-size: 28rpx;
+  color: white;
+}
+
+.info view text {
+  font-size: 32rpx;
+}
+
+.list {
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: -15rpx;
+  padding: 30rpx 0;
+  margin-bottom: 20rpx;
+}
+
+.item {
+  text-align: center;
+}
+
+.item view {
+  font-size: 32rpx;
+}
+
+.myEx {
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.strategy {
+  width: 50rpx;
+  height: 49rpx;
+}
+
+.punch {
+  width: 50rpx;
+  height: 46rpx;
+}
+
+.centerItem {
+  height: 98rpx;
+  background-color: white;
+  position: relative;
+  line-height: 90rpx;
+  text-align: left;
+}
+
+.centerItem image, .centerItem text {
+  vertical-align: middle;
+}
+
+/* 
+.myColl, .centerList {
+  margin-bottom: 25rpx;
+} */
+
+.center_coll {
+  width: 49rpx;
+  height: 46rpx;
+}
+
+.centerItem image:first-child {
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+
+.jian {
+  width: 18rpx;
+  height: 32rpx;
+  position: absolute;
+  right: 39rpx;
+  top: 36rpx;
+}
+
+.text {
+  font-size: 32rpx;
+  color: #313131;
+}
+
+.line {
+  border-bottom: 1px #dcdcdc solid;
+}
+
+.address {
+  width: 35rpx;
+  height: 39rpx;
+}
+
+.problem {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.contact {
+  width: 44rpx;
+  height: 36rpx;
+}
+
+.img {
+  width: 70rpx;
+  text-align: center;
+  display: inline-block;
+  margin-right: 18rpx;
+}
+
+.record {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.bd_phone {
+  width: 194rpx;
+  height: 60rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 10%;
+  left: 0;
+  border-top-right-radius: 30rpx;
+  border-bottom-right-radius: 30rpx;
+  background-color: rgba(0, 0, 0, .2);
+  z-index: 99999;
+}
+
+.bd_phone image {
+  width: 25rpx;
+  height: 39rpx;
+  position: relative;
+}
+
+.bd_phone text {
+  font-size: 24rpx;
+  color: #fff;
+  line-height: 60rpx;
+  margin-left: 10rpx;
+}

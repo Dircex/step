@@ -1,0 +1,98 @@
+/* pages/myExchange/myExchange.wxss */
+
+.main {
+  width: 100%;
+  overflow: hidden;
+}
+
+.btn {
+  width: 93%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 40rpx;
+  padding-bottom: 35rpx;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.btn view {
+  position: relative;
+  margin: 0 20rpx;
+  color: #a1a1a1;
+}
+
+.tips {
+  position: absolute;
+  font-size: 25rpx;
+  margin-top: 6.5%;
+  color: #fd6331;
+}
+
+view.active {
+  color: white;
+}
+
+.btn view image {
+  width: 198rpx;
+  height: 62rpx;
+}
+
+.btn view text {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  top: 16%;
+  font-size: 28rpx;
+}
+
+.content {
+  width: 100%;
+}
+
+.item {
+  padding: 20rpx;
+  position: relative;
+  border-bottom: 1px #e5e5e5 solid;
+}
+
+.item image {
+  width: 150rpx;
+  height: 150rpx;
+  margin: 10rpx;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.item_info {
+  display: inline-block;
+  vertical-align: middle;
+  width: 64%;
+  height: 150rpx;
+  position: relative;
+  left: 1%;
+  color: #292929;
+  font-size: 38rpx;
+}
+
+.item_info view:first-child {
+  font-size: 32rpx;
+  word-wrap: break-word;
+}
+
+.item_info view:last-child {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: 34rpx;
+  color: #a6a6a6;
+}
+
+.empty {
+  margin-top: 100rpx;
+  color: gray;
+  font-size: 34rpx;
+  width: 100%;
+  text-align: center;
+}

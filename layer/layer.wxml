@@ -1,0 +1,85 @@
+<!-- 点击抽奖弹层  -->
+<template name='luck_draw'>
+  <view class='luck_draw'>
+    <view class='drawBody'>
+      <view class='drawMain'>
+        <view class='getCodeBox'>
+          <image class='getCode' src='../../images/getCode.png'></image>
+          <scroll-view scroll-y='true'>
+            <block wx:for='{{codeList}}' wx:key>
+              <view>{{item.code}}</view>
+            </block>
+          </scroll-view>
+        </view>
+        <view class='hint' hidden='{{close_share_bth}}'>
+          <view>关注公众号额外获取抽奖码+2</view>
+          <view>分享好友参与获取抽奖码+1</view>
+          <view>好友中奖你也会额外获得奖品一份哦~</view>
+        </view>
+        <view class='cut_line'>
+          <text></text>
+          <text>立即提升</text>
+          <text></text>
+        </view>
+        <view class='btn'>
+          <button class='draw_follow' hover-class='none' bindtap='follow' wx:if='{{detail.public_icon!=""}}'>
+            <image src='../../images/draw_follow.png'></image>
+            <text>关注公众号</text>
+          </button>
+          <button class='draw_share' hover-class='none' bindtap='share'>
+            <image src='../../images/draw_share.png'></image>
+            <text>邀请好友{{detail.public_icon}}</text>
+          </button>
+        </view>
+      </view>
+      <view class='closeDraw'>
+        <image class='close' src='../../images/exit.png' bindtap='closeShare'></image>
+      </view>
+    </view>
+  </view>
+</template>
+
+<!-- 提升弹层  -->
+<template name='promote'>
+  <view class='luck_draw'>
+    <view class='drawBody'>
+      <view class='drawMain'>
+        <view class='type hint'>可通过下列方式提升中奖率</view>
+        <view class='hint'>关注公众号额外获取抽奖码+2</view>
+        <view class='hint'>分享好友参与获取抽奖码+1</view>
+        <view class='hint'>好友中奖你也会额外获得奖品一份哦~</view>
+        <view class='cut_line promote_cut_line'>
+          <text></text>
+          <text>立即提升</text>
+          <text></text>
+        </view>
+        <view class='btn'>
+          <button class='draw_follow' hover-class='none' bindtap='follow' wx:if='{{img!=""}}'>
+            <image src='../../images/draw_follow.png'></image>
+            <text>关注公众号</text>
+          </button>
+          <button class='draw_share' hover-class='none' bindtap='share'>
+            <image src='../../images/draw_share.png'></image>
+            <text>邀请好友</text>
+          </button>
+        </view>
+      </view>
+      <view class='closeDraw'>
+        <!-- <view class='close_line'></view> -->
+        <image class='close' src='../../images/exit.png' bindtap='closeShare'></image>
+      </view>
+    </view>
+  </view>
+</template>
+
+<!-- 关注公众号弹层  -->
+<template name='follow'>
+  <view class="followTemp">
+    <view class="follow_box">
+      <view class="follow_main">
+        <image class='closeFollow' src='../../images/close.png' bindtap='closeFollow'></image>
+        <image class='followImg' src='{{img}}'></image>
+      </view>
+    </view>
+  </view>
+</template>

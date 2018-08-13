@@ -1,0 +1,14 @@
+<!--pages/money/money.wxml-->
+<view class="container">
+  <view class='empty' hidden='{{empty}}'>暂无记录~</view>
+  <view>
+    <block wx:for='{{postList}}' wx:for-item="item" wx:key=''>
+      <view class='sameRecord'>
+        <text class='getStyle'>{{item.desc}}</text>
+        <text class='numMoney'><text wx:if='{{item.type=="1"}}'>+</text>
+        <text wx:else>-</text>{{item.gold}}{{item.wallet_type=="1"?"步数":"步步币"}}</text>
+        <text class='getTime'>{{item.create_time}}</text>
+      </view>
+    </block>
+  </view>
+</view>

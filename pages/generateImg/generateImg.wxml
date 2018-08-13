@@ -1,0 +1,16 @@
+<!--pages/test/test.wxml-->
+<view class='container'>
+  <canvas canvas-id='shareImg' class='ctx'></canvas>
+  <view class='btn' wx:if='{{saveBol}}'>
+    <button open-type='share' hover-class='none'>
+      <image src='../../images/share_.png'></image>
+      <!-- <text>分享好友或群</text> -->
+    </button>
+    <button bindtap='saveImg' hover-class='none'>
+      <image src='../../images/saveImg.png'></image>
+      <!-- <text>保存图片去分享</text> -->
+    </button>
+    <!-- <image src='../../images/saveImg.png'></image>
+  <text>保存图片</text> -->
+  </view>
+</view>

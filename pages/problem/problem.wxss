@@ -1,0 +1,35 @@
+/* pages/problem/problem.wxss */
+
+.content {
+  padding: 20rpx;
+}
+
+.item {
+  border-bottom: 1px #d2d2d2 solid;
+  padding: 20rpx;
+}
+
+.title {
+  position: relative;
+}
+
+.title text {
+  font-size: 36rpx;
+  width: 91%;
+  display: inline-block;
+}
+
+.title image {
+  width: 27rpx;
+  height: 17rpx;
+  position: absolute;
+  right: 10rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%)；;
+}
+.about{
+  margin-top: 30rpx;
+  margin-bottom: 20rpx;
+  color: #696969;
+}

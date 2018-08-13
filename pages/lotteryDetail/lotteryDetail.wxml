@@ -1,0 +1,221 @@
+<!--pages/lotteryDraw/lotteryDraw.wxml-->
+<import src="/layer/layer.wxml" />
+<scroll-view class='content' scroll-y='true'>
+  <view class='question' bindtap='question'>
+    <text>抽奖问题</text>
+  </view>
+  <!-- 返回首页  -->
+  <!-- <navigator class='goHome' open-type='redirect' url='../index/index' hover-class='none' wx:if='{{shareUid}}'>
+    <image src=''></image>
+  </navigator> -->
+  <!-- 活动主图  -->
+  <image class='picture' src='{{detail.picture}}'></image>
+  <!-- 详情  -->
+  <view class='main'>
+    <image class='mainBg' src='../../images/titleBg.png'></image>
+    <view class='mainCon'>
+      <!-- 活动标题  -->
+      <view class='title'>{{detail.title}}</view>
+      <!-- 开奖时间  -->
+      <view class='time'>{{detail.end_time}}　{{detail.is_auto=="1"?"自动开奖":"手动开奖"}}</view>
+      <!-- 参与状态  -->
+      <view class='over operation _op' wx:if='{{sign=="over"}}' bindtap='checkList'>
+        <image src='../../images/start.png'></image>
+        <text class='opText'>查看中奖名单</text>
+      </view>
+      <view wx:else>
+        <form class='_form' bindsubmit="formSubmit" report-submit='true' wx:if='{{detail.status==false?(detail.change_status==false?true:false):false}}'>
+          <button class='operation' open-type='getUserInfo' bindgetuserinfo='luck_draw' data-id='{{detail.id}}' form-type='submit' hover-class='none'>
+            <image src='../../images/start.png'></image>
+            <text class='opStepText'>{{detail.need_step}}步</text>
+            <text class='opCjText'>步数抽奖</text>
+          </button>
+        </form>
+        <view class='operation _op' wx:elif='{{detail.status==false?detail.change_status:""}}'>
+          <image src='../../images/end.png'></image>
+          <text class='opText'>参与人数已满</text>
+        </view>
+        <view class='operation _op' wx:elif='{{detail.status==true}}' bindtap='promote'>
+          <image src='../../images/start.png'></image>
+          <view class='opView'>
+            <text>已参与</text>
+            <text>提升中奖率</text>
+          </view>
+        </view>
+        <view class='operation _op' wx:elif='{{detail.status=="open"}}'>
+          <image src='../../images/start.png'></image>
+          <text class='opText'>开奖中</text>
+        </view>
+        <view class='operation _op' wx:else>
+          <image src='../../images/end.png'></image>
+          <text class='opText'>已结束</text>
+        </view>
+      </view>
+      <!-- 已有抽奖码个数  -->
+      <view class='codeNum' bindtap='myCode'>已获得抽奖码×{{detail.number_count==""?0:detail.number_count}}</view>
+    </view>
+  </view>
+  <!-- 活动说明   -->
+  <view class='illustrate'>
+    <view class='illustrate_title'>抽奖活动说明</view>
+    <view class='illustrate_con {{spread?"default":" "}}'>{{detail.desc}}</view>
+    <view class='spread' bindtap='spread'>{{spread?"展开":"收起"}}</view>
+  </view>
+  <!-- 抽奖码排行榜  -->
+  <view class='rank'>
+    <image class='rankBg' src='../../images/rankBg.png'></image>
+    <view class='rankMain'>
+      <image class='rankImg' src='../../images/rank.png'></image>
+      <view class='hint text'>第一名可额外获赠抽奖奖品1个</view>
+      <view class='hint'>共<text style='color:#FC8B00'>{{num}}</text>人参与</view>
+      <scroll-view class='rankBox' scroll-y='true' bindscrolltolower='tolower'>
+        <block wx:for="{{rankList}}" wx:key="">
+          <template is="item" data="{{...item}}"></template>
+        </block>
+      </scroll-view>
+    </view>
+  </view>
+</scroll-view>
+<!-- 底部按钮  -->
+<view class='footBar'>
+  <view class='follow' bindtap='follow' wx:if='{{detail.public_icon!=""}}'>
+    <image class='follImg' src='../../images/follow.png'></image>
+    <text>关注公众号</text>
+  </view>
+  <view class='share' bindtap='share'>
+    <image class='shareImg' src='../../images/share1.png'></image>
+    <text>分享给好友</text>
+  </view>
+</view>
+
+<!-- 分享给好友  -->
+<view class='shareTyeBox' bindtap='cancel' hidden='{{shareType}}'>
+  <view class='shareType'>
+    <view catchtap='share_image'>生成分享图片</view>
+    <button open-type='share'>发送给微信好友</button>
+    <view catchtap='cancel'>取消</view>
+  </view>
+</view>
+
+<!--抽奖码排行榜  -->
+<template name="item">
+  <view class='item-text-view'>
+    <view class='rankItem {{ranking==1?"no1Bg":" "}}'>
+      <view class='ranking No1' wx:if='{{ranking==1}}'>
+        <image class='No1Img' src='../../images/No1.png'></image>
+      </view>
+      <text class='ranking {{ranking==1?"no1Color":" "}}' wx:else>{{ranking}}</text>
+      <view class='rankName {{ranking==1?"no1Color":" "}}'>
+        <image src='{{avatar}}'></image>
+        <text>{{nickname}}</text>
+      </view>
+      <view class='rankNum {{ranking==1?"no1Color":" "}}'>
+        <text class='rankNum_text {{ranking==1?"no1Color":" "}}'> {{num}}</text>个抽奖码</view>
+    </view>
+  </view>
+</template>
+
+<!-- 点击抽奖弹层  -->
+<block wx:for="{{code}}" wx:key="" wx:if='{{status=="0"}}'>
+  <template is="luck_draw" data="{{...item,detail}}"></template>
+</block>
+<!-- 提升中奖率真弹层  -->
+<block wx:for="{{public_icon}}" wx:key="" wx:if='{{status=="1"}}'>
+  <template is="promote" data="{{...item}}"></template>
+</block>
+<!-- 关注公众号弹层  -->
+<block wx:for="{{public_icon}}" wx:key="" wx:if="{{follow}}">
+  <template is="follow" data="{{...item}}" />
+</block>
+
+<!-- 我的抽奖码弹层  -->
+<view class='myCode_' wx:if="{{myCode}}">
+  <view class='myCodeBody_'>
+    <view class='myCodeMain_'>
+      <image class='mycode_bg_' src='../../images/mycode_bg.png'></image>
+      <view class='codeLine_'>
+        <text></text>
+        <text>我的抽奖码</text>
+        <text></text>
+      </view>
+      <view class='noCode_' wx:if='{{noCode}}'>无抽奖码~</view>
+      <scroll-view class='codeList_' scroll-y='true' wx:else>
+        <block wx:for="{{myCodeList}}" wx:key="">
+          <view class='codeIteml_'>
+            <image src='../../images/mycodeBg.png'></image>
+            <text>{{item.code}}</text>
+          </view>
+        </block>
+      </scroll-view>
+      <view class='myCodeClose_'>
+        <image class='close_' src='../../images/exit.png' bindtap='closeCode'></image>
+      </view>
+
+      <view class='friendHelp' wx:if='{{friendHelp.length==0}}'>
+        <!-- <view class='friendHelp' wx:if='{{0==0}}'> -->
+        <text></text>
+        <text>暂无好友助力</text>
+        <text></text>
+        <button class='buttonHelp' open-type='share' hover-class='none'>
+          <image src='../../images/needHelp.png'></image>
+        </button>
+      </view>
+      <view class='friendHelp' wx:else>
+          <text></text>
+          <text>好友助力</text>
+          <text></text>
+      </view>
+          <text class='numHelp' wx:if='{{friendHelp.length!=0}}'>共有{{friendHelp.length}}个好友助力</text>
+      <scroll-view class='friendHelpList' scroll-y='true'>
+          <view class='friendMsg' wx:for='{{friendHelp}}' wx:key=''>
+            <image src="{{item.avatar}}"></image>
+            <!-- <text class='friendName'>{{item.nickname}}</text> -->
+          </view>
+        </scroll-view>
+    </view>
+  </view>
+</view>
+
+<!-- 中奖名单弹层   -->
+<view class='myCode' wx:if="{{winningBol}}">
+  <view class='myCodeBody'>
+    <view class='win_list'>
+      <view class='win_codeLine'>
+        <text></text>
+        <text>中奖名单</text>
+        <text></text>
+      </view>
+      <scroll-view class='codeList winList' scroll-y='true'>
+        <view class='win_inviter'>
+          <block wx:for='{{winningList}}' wx:key>
+            <view class='win_item' wx:if="{{item.type!=3}}">
+              <!-- <image class='winnerImg' src='{{item.get_way==0?"../../images/winner.png":"../../images/inviter.png"}}'></image> -->
+              <image class='winnerImg' src='{{item.type==2?"../../images/winner.png":(item.type==1?"../../images/inviter.png":"")}}'></image>
+              <view class='avatar'>
+                <image src='{{item.avatar}}'></image>
+              </view>
+              <text class='win_name'>{{item.nickname}}</text>
+              <!-- <text class='win_code'>{{item.number}}</text> -->
+            </view>
+          </block>
+        </view>
+      </scroll-view>
+      <text class='tips1'>请完善收货信息，方便邮寄商品</text>
+    </view>
+    <view class='myCodeClose'>
+      <!-- <view class='close_line'></view> -->
+      <image class='close' src='../../images/exit.png' bindtap='closeWin'></image>
+    </view>
+  </view>
+</view>
+<!-- 参与抽奖步数不足弹窗   -->
+<view class='noEnoughStepbg' wx:if='{{numStep}}'>
+  <view class='noEnoughStep'>
+    <image class='drawImg' src='../../images/stepMsg.png'></image>
+    <image class='closeIco' src='../../images/close.png' bindtap='stepClose'></image>
+    <view class='tips'>您当前步数不够</view>
+    <button class='getstep' hover-class='none' open-type='share' data-pin='pinbu'>
+      <image src='../../images/stepfont.png'></image>
+    </button>
+  </view>
+</view>

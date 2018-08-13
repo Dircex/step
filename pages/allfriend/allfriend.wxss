@@ -1,0 +1,45 @@
+/* pages/allfriend/allfriend.wxss */
+
+
+.ad_area_1 {
+  margin-top: 60rpx;
+  width: 100%;
+  height: auto;
+}
+
+.ad_area_1 ad {
+  width: 100%;
+  height: 100%;
+}
+
+.friendList {
+  width: 80%;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin: 50rpx auto 10rpx;
+}
+.frienditem {
+  width: 12.5%;
+  height: 60rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 30rpx;
+  margin-top: 16rpx;
+  /* background-color: #50A9E0; */
+}
+
+.frienditem image {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+}
+
+.more {
+  font-size: 32rpx;
+  color: #ccc;
+  text-align: center;
+  line-height: 80rpx;
+}

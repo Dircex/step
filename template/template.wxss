@@ -1,0 +1,540 @@
+.confirm, .signin, .ruleDec, .bandPhone, .auth {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+
+.confirm_bg {
+  width: 525rpx;
+  height: 551rpx;
+}
+
+.confirm_bg2 {
+  width: 525rpx;
+  height: 625rpx;
+}
+
+.confirm_box {
+  width: 525rpx;
+  height: 551rpx;
+  position: absolute;
+  top: 150rpx;
+  left: 50%;
+  margin-left: -254rpx;
+  /* -webkit-animation: suofang linear 0.2s forwards;
+  animation: suofang linear 0.2s forwards; */
+}
+
+@-webkit-keyframes suofang {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+
+  50% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes suofang {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+
+  50% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+.closeBox {
+  width: 70rpx;
+  height: 70rpx;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 500;
+}
+
+.close1 {
+  width: 34rpx;
+  height: 34rpx;
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+}
+
+.close {
+  width: 34rpx;
+  height: 34rpx;
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+  z-index: 500;
+}
+
+.confirm_main, .signin_main {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.confirm_main>view, .signin_main>view {
+  text-align: center;
+  width: 100%;
+}
+
+.confirm_main>view:first-child {
+  color: #ef8226;
+  margin-top: 50rpx;
+  font-size: 34rpx;
+}
+
+.confirm_main>view:nth-child(2), .confirm_main>view:nth-child(3),
+.confirm_main>view:nth-child(4) {
+  color: #676767;
+  font-size: 34rpx;
+}
+
+.confirm_main>view:nth-child(2) {
+  color: #ef8226;
+  margin-bottom: 50rpx;
+  font-size: 34rpx;
+}
+
+.confirm_main>view:nth-child(2) text {
+  color: #ef8226;
+  font-size: 36rpx;
+}
+
+.confirm_main>view:nth-child(3) {
+  margin-top: 10rpx;
+  margin-bottom: 30rpx;
+}
+
+.confirm_main>view:last-child {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 140rpx;
+}
+
+.confirm_main>view:last-child view, .confirm_main>view:last-child button {
+  position: relative;
+  margin: 0 10rpx;
+}
+
+.confirm_main>view:last-child view image,
+.confirm_main>view:last-child button image {
+  width: 222rpx;
+  height: 70rpx;
+}
+
+.confirm_main>view:last-child view text,
+.confirm_main>view:last-child button text {
+  position: absolute;
+  left: 0;
+  top: 18%;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 32rpx;
+}
+
+/* 每日签到  */
+
+.signin_bg {
+  width: 464rpx;
+  height: 609rpx;
+}
+
+.signin_box {
+  width: 464rpx;
+  height: 609rpx;
+  position: absolute;
+  top: 150rpx;
+  left: 50%;
+  margin-left: -232rpx;
+  -webkit-animation: suofang linear 0.2s forwards;
+  animation: suofang linear 0.2s forwards;
+}
+
+.signin_main {
+  margin-top: 260rpx;
+}
+
+.signin_main>view:first-child {
+  color: #2f2f2f;
+  font-size: 36rpx;
+}
+
+.signin_main>view:first-child text {
+  color: #ffce22;
+}
+
+.signin_main>view:nth-child(2) {
+  color: #aaa;
+  font-size: 32rpx;
+  margin-top: 20rpx;
+}
+
+.signin_main>view:last-child {
+  position: relative;
+  font-size: 30rpx;
+  top: 40rpx;
+}
+
+.signin_main>view:last-child view, .signin_main>view:last-child text {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.signin_main>view:last-child view {
+  width: 39rpx;
+  height: 39rpx;
+  position: relative;
+  color: #414141;
+  right: 8rpx;
+}
+
+.circle {
+  width: 39rpx;
+  height: 39rpx;
+}
+
+.gou {
+  width: 30rpx;
+  height: 21rpx;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -15rpx;
+  margin-top: -10rpx;
+}
+
+._form {
+  width: 100%;
+}
+
+.signin_com {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 30rpx;
+}
+
+.signin_com image {
+  width: 198rpx;
+  height: 62rpx;
+}
+
+.signin_com text {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 15%;
+  color: white;
+  font-size: 32rpx;
+}
+
+/* 规则说明  */
+
+.ruleDec_box {
+  width: 600rpx;
+  height: 680rpx;
+  position: absolute;
+  top: 150rpx;
+  left: 50%;
+  margin-left: -300rpx;
+  background-color: white;
+  border-radius: 10rpx;
+  -webkit-animation: suofang linear 0.2s forwards;
+  animation: suofang linear 0.2s forwards;
+}
+
+.ruleDec_box scroll-view {
+  width: 100%;
+  height: 90%;
+  margin-top: 9%;
+}
+
+.ruleDec_title {
+  width: 100%;
+  text-align: center;
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.ruleDec_con {
+  width: 95%;
+  margin: 0 auto;
+  text-indent: 25px;
+  font-size: 30rpx;
+  color: gray;
+  line-height: 26px;
+}
+
+.auth_box {
+  width: 500rpx;
+  height: 300rpx;
+  background-color: white;
+  border-radius: 5rpx;
+  position: absolute;
+  top: 300rpx;
+  left: 50%;
+  margin-left: -250rpx;
+  -webkit-animation: suofang linear 0.2s forwards;
+  animation: suofang linear 0.2s forwards;
+}
+
+.auth_main>view:first-child {
+  text-align: center;
+  margin-top: 30rpx;
+  margin-bottom: 20rpx;
+  font-size: 36rpx;
+}
+
+.auth_main>view:nth-child(2) {
+  width: 90%;
+  text-indent: 50rpx;
+  margin: 0 auto;
+  font-size: 32rpx;
+  color: gray;
+}
+
+.authBth {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px lightgray solid;
+}
+
+.authBth view, .authBth button {
+  display: inline-block;
+  vertical-align: middle;
+  width: 50%;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  text-align: center;
+}
+
+.authBth button {
+  color: #75d376;
+  border-left: 1px lightgray solid;
+}
+
+/* 立即兑换步数不足弹窗 */
+
+.hiddenBg {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0%;
+  z-index: 500;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.numStepbg {
+  background-color: #fff;
+  width: 490rpx;
+  height: 760rpx;
+  position: fixed;
+  top: 14.5%;
+  left: 18.2%;
+  border-radius: 10rpx;
+  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.5);
+}
+
+.numStep {
+  position: fixed;
+  top: 15%;
+  left: 19%;
+  z-index: 500;
+  -webkit-animation: suofang linear 0.2s forwards;
+  animation: suofang linear 0.2s forwards;
+}
+
+.numStep image {
+  width: 479rpx;
+  height: 748rpx;
+}
+
+.numStep .closeIco {
+  width: 50rpx;
+  height: 139rpx;
+  z-index: 502;
+  position: absolute;
+  left: 45%;
+  top: 99%;
+}
+
+.numStep .goodsImg {
+  width: 479rpx;
+  height: 460rpx;
+  position: absolute;
+  z-index: 501;
+  left: 0%;
+  border-radius: 15rpx 15rpx 0 0;
+}
+
+.numStep .goodsinfo {
+  position: absolute;
+  top: 64%;
+  left: 6%;
+  z-index: 501;
+  font-size: 28rpx;
+  width: 430rpx;
+}
+
+.numStep .goodsinfo view:nth-child(1) {
+  font-size: 28rpx;
+  font-weight: 700;
+  float: left;
+}
+
+.numStep .goodsinfo view:nth-child(2) {
+  float: right;
+  color: #73d5e5;
+}
+
+.numStep .myinfo {
+  position: absolute;
+  top: 72%;
+  left: 6%;
+  z-index: 501;
+  font-size: 28rpx;
+  width: 430rpx;
+}
+
+.numStep .myinfo view:nth-child(1) {
+  font-size: 28rpx;
+  font-weight: 700;
+  float: left;
+}
+
+.numStep .myinfo view:nth-child(2) {
+  float: right;
+  color: #73d5e5;
+}
+
+.tips {
+  position: absolute;
+  top: 79%;
+  z-index: 501;
+  font-size: 28rpx;
+  color: #c4c4c4;
+  left: 28%;
+}
+
+.getstep {
+  position: absolute;
+  top: 86%;
+  z-index: 501;
+  left: 19%;
+}
+
+.getstep image {
+  width: 293rpx;
+  height: 70rpx;
+}
+
+/* 手机号绑定弹窗 */
+
+.inputPhone {
+  width: 80%;
+  height: 82rpx;
+  font-size: 28rpx;
+  line-height: 28rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  color: #333;
+  border: 1px solid #c8cccf;
+  margin-left: 49rpx;
+  margin-top: 5%;
+}
+
+.codeView {
+  position: relative;
+  left: 10%;
+  top: 60rpx;
+  text-align: left;
+  width: 420rpx;
+  height: 82rpx;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.inputCode {
+  width: 252rpx;
+  height: 82rpx;
+  font-size: 28rpx;
+  line-height: 28rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  color: #333;
+  border: 1px solid #c8cccf;
+  margin-left: 0;
+  text-align: left;
+}
+
+.onCode {
+  width: 168rpx;
+  height: 82rpx;
+  font-size: 28rpx;
+  line-height: 82rpx;
+  background: linear-gradient(to right, #51abe0, #62dee4);
+  text-align: center;
+  color: white;
+  position: absolute;
+  left: 252rpx;
+  top: 0;
+  z-index: 500;
+}
+
+.onCode1 {
+  font-size: 24rpx;
+  line-height: 82rpx;
+  background: linear-gradient(to right, #51abe0, #62dee4);
+  width: 168rpx;
+  text-align: center;
+  color: white;
+  position: absolute;
+  left: 252rpx;
+  top: 0;
+}
+
+.phoneTips {
+  color: red;
+  font-size: 20rpx;
+  position: absolute;
+  top: 49%;
+  left: 10%;
+}
+
+.codeTips {
+  color: red;
+  font-size: 20rpx;
+  position: absolute;
+  top: 74%;
+  left: 10%;
+}

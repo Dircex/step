@@ -1,0 +1,164 @@
+/* pages/exchange/exchange.wxss */
+@import "/template/template.wxss";
+
+.lampList {
+  width: 100%;
+  height: 70rpx;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: relative;
+  z-index: 2;
+}
+
+.lampList swiper-item {
+  text-align: center;
+  padding-top: 5rpx;
+  box-sizing: border-box;
+}
+
+.lampList .slide-image {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10rpx;
+}
+
+.lampTitle {
+  font-size: 24rpx;
+  color: white;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.adList {
+  width: 100%;
+  height: 235rpx;
+  position: absolute;
+  top: 0;
+}
+
+.adList .slide-image {
+  width: 750rpx;
+  height: 235rpx;
+}
+
+.giftBox {
+  width: 100%;
+  margin-top: 160rpx;
+}
+
+.hint {
+  color: lightgray;
+  font-size: 24rpx;
+  margin-left: 20rpx;
+}
+
+.gift_title {
+  margin: 5rpx 0 10rpx 20rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.gift_title>text {
+  color: #2e2e2e;
+  font-size: 28rpx;
+  margin-left: 10rpx;
+  display: inline-block;
+  vertical-align: middle;
+  font-weight: bold;
+}
+
+.rect {
+  width: 11rpx;
+  height: 35rpx;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.giftBg {
+  width: 365rpx;
+  height: 578rpx;
+}
+
+.giftItem {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  width: 50%;
+}
+
+.itemBox {
+  width: 92%;
+  height: 100%;
+  position: absolute;
+  left: 4%;
+  top: 0;
+}
+
+.itemBox>image {
+  width: 336rpx;
+  height: 336rpx;
+  margin-top: 14rpx;
+}
+
+.title {
+  width: 90%;
+  color: #292929;
+  font-size: 26rpx;
+  font-weight: bold;
+  margin-left: 5%;
+  margin-bottom: 15rpx;
+  text-align: left;
+}
+
+.gift_detail {
+  width: 90%;
+  margin-left: 5%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 26rpx;
+  color: #c1c1c1;
+}
+
+.gift_detail>view:first-child {
+  color: #5fd0e2;
+}
+
+.exchangeBtn {
+  width: 198rpx;
+  height: 62rpx;
+  position: absolute;
+  left: 50%;
+  bottom: 46rpx;
+  transform: translateX(-50%);
+}
+
+.exchangeBtn image {
+  width: 198rpx;
+  height: 62rpx;
+}
+
+.exchangeBtn view {
+  width: 100%;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 28rpx;
+  color: white;
+}
+
+.invited {
+  position: absolute;
+  right: 20rpx;
+  bottom: 0;
+  color: #868484;
+  font-size: 24rpx;
+}
+
+.invited text {
+  color: #536bed;
+}

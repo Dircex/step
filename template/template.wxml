@@ -1,0 +1,119 @@
+<!-- 确认信息弹层  -->
+<template name='confirm'>
+  <view class='confirm'>
+    <view class='confirm_box'>
+      <image class='confirm_bg' src='../../images/comfirmBg.png'></image>
+      <image class='close' src='../../images/close.png' bindtap='comClose'></image>
+      <view class='confirm_main'>
+        <view>确认信息提示</view>
+        <view>请在
+          <text>我的-收货地址</text>中完善信息</view>
+        <view>审核发货后不支持变更</view>
+        <view>虚拟充值以收货手机号为准</view>
+        <view class='confirm_btn'>
+          <view bindtap='comClose'>
+            <image src='../../images/com_cancel.png'></image>
+            <text>取消兑换</text>
+          </view>
+          <form bindsubmit="formSubmit" report-submit='true' data-type='exchange'>
+            <button bindtap='exchange_com' form-type='submit' hover-class='none'>
+              <image src='../../images/com_sure.png'></image>
+              <text>确认兑换</text>
+            </button>
+          </form>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
+
+<!-- 签到成功弹层  -->
+<template name='signin'>
+  <view class='signin'>
+    <view class='signin_box'>
+      <image class='signin_bg' src='../../images/qd_bg.png'></image>
+      <view class='signin_main'>
+        <view>恭喜获得
+          <text>+{{money}}</text>步步币</view>
+        <view>明日签到可获得{{tom}}步步币</view>
+        <view bindtap='remind'>
+          <view>
+            <image src='../../images/circle.png' class='circle'></image>
+            <image src='../../images/gou.png' class='gou' wx:if='{{checked}}'></image>
+          </view>
+          <text>明天提醒我签到哦~</text>
+        </view>
+      </view>
+      <form bindsubmit="formSubmit" report-submit='true' class='_form' data-type='sign'>
+        <button class='signin_com' form-type='submit' hover-class='none' bindtap='signin_com'>
+          <image src='../../images/exchangeBg.png'></image>
+          <text>确定</text>
+        </button>
+      </form>
+    </view>
+  </view>
+</template>
+
+<!-- 规则说明  -->
+<template name='ruleDec'>
+  <view class='ruleDec'>
+    <view class='ruleDec_box'>
+      <image class='close' src='../../images/close.png' bindtap='ruleClose'></image>
+      <scroll-view scroll-y='true'>
+        <block wx:for='{{detail}}' wx:key>
+          <view class='ruleDec_title'>{{item.title}}</view>
+          <block wx:for='{{item.data}}' wx:for-item='con' wx:key>
+            <view class='ruleDec_con'>{{con}}</view>
+          </block>
+        </block>
+      </scroll-view>
+    </view>
+  </view>
+</template>
+
+<!-- 授权  -->
+<template name='auth'>
+  <view class='auth'>
+    <view class='auth_box'>
+      <view class='auth_main'>
+        <view>提示</view>
+        <view>该小程序需要授权才能更好的使用！</view>
+        <view class='authBth'>
+          <view>取消</view>
+          <button open-type='getUserInfo' bindgetuserinfo='auth'>确定</button>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
+
+<!-- 绑定手机信息弹层  -->
+<template name='bandPhone'>
+  <view class='bandPhone'>
+    <view class='confirm_box'>
+      <image class='confirm_bg2' src='../../images/comfirmBg.png'></image>
+      <view class='closeBox' bindtap='comClose'>
+        <image class='close1' src='../../images/close.png'></image>
+      </view>
+      <form bindsubmit="formSubBP" report-submit='true'>
+        <view class='confirm_main'>
+          <view>{{tips?'为了确保账号安全':(tipsCenter?'绑定手机':'为了保证公平捐赠')}}</view>
+          <view>{{tips?'兑换请绑定手机':(tipsCenter?'':'防止小号，请验证手机')}}</view>
+          <input placeholder-class="input-holder" type="number" bindblur='inputPhone' name="phone" maxlength="11"  class="inputPhone" placeholder="手机号" required></input>
+          <view class='codeView'>
+            <input placeholder-class="input-holder" type="text" name="code" maxlength="6" class="inputCode" placeholder="验证码" required></input>
+            <button class='{{sencodsFlag?"onCode1":"onCode"}}' catchtap='sendVeryCode' hover-class='none'>{{sencodsFlag?sencods+'s后重新获取':'获取验证码'}}</button>
+          </view>
+          <view class='confirm_btn'>
+            <button form-type='submit' hover-class='none'>
+              <image src='../../images/com_sure.png'></image>
+              <text>确定</text>
+            </button>
+            <text class='phoneTips' wx:if='{{phoneTips}}'>请输入正确的手机号!</text>
+            <text class='codeTips' wx:if='{{codeTips}}'>请输入六位验证码!</text>
+          </view>
+        </view>
+      </form>
+    </view>
+  </view>
+</template>

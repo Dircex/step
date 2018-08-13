@@ -1,0 +1,208 @@
+<!--index.wxml-->
+<!-- 引入模版结构 -->
+<import src="/template/template.wxml" />
+<view class="container">
+  <view class="spinner">
+    <view class="rect1"></view>
+    <view class="rect2"></view>
+    <view class="rect3"></view>
+    <view class="rect4"></view>
+    <view class="rect5"></view>
+  </view>
+
+  <view class='main'>
+    <image src='../../images/mainBg.png' class='mainBg'></image>
+    <!-- 步数球   catchtap='clickRule'-->
+    <view class='big' catchtap='clickRule'>
+      <image class='ballBg' src='../../images/ballBg.png'></image>
+      <view class='ballBox'>
+        <view class='gifBox' style='bottom:{{bot}}px'>
+          <image src='../../images/y1.gif'></image>
+          <image src='../../images/y2.gif'></image>
+        </view>
+        <!-- <view class='box stepBox' wx:if='{{loginBol}}'> -->
+        <view class='box stepBox' >
+          <view>总步数</view>
+          <view class='stepNumber'>{{stepNumber}}</view>
+          <view>每日0点转为步步币</view>
+        </view>
+        <!--未登录  -->
+        <!-- <button class='login' open-type='getUserInfo' bindgetuserinfo='login' wx:else>授权登录</button> -->
+      </view>
+    </view>
+    <view class='rule'>规则点我↑</view>
+    <!-- 每日签到 -->
+    <view class='daily' bindtap='daily' wx:if='{{dailyBol}}'>
+      <view class='daily_con'>
+        <image class='bubble' src='../../images/{{daily}}.png'></image>
+      </view>
+      <view class='daily_text'>每日签到</view>
+    </view>
+    <!-- 每日领奖 -->
+    <view class='daily' bindtap='award' wx:if='{{!dailyBol&&awardkey}}'>
+      <view class='daily_con'>
+        <image class='bubble' src='../../images/recive.png'></image>
+      </view>
+      <view class='daily_text'>领奖</view>
+    </view>
+    <!-- 分享朋友圈  -->
+    <view class='share' bindtap='share' hidden='{{showShare}}'>
+      <image class='shareBg' src='../../images/share_bg.png'></image>
+      <image class='shareImg' src='../../images/share.png'></image>
+    </view>
+    <!-- 步数详情  -->
+    <view class='stepDetail'>
+      <view class='myStep'>
+        <view>我的步数</view>
+        <view>{{myStep}}</view>
+      </view>
+      <view class='friendStep'>
+        <view>好友赞助</view>
+        <view>{{friendStep}}</view>
+      </view>
+    </view>
+    <!-- 邀请好友凑步数  -->
+    <button class='invite' open-type='share' hover-class='none' hidden='{{showShare}}'>
+      <image src='../../images/present.png'></image>
+      <view>邀请好友凑步数</view>
+    </button>
+  </view>
+  <!-- 轮播图  -->
+  <swiper autoplay='true' circular='true' hidden='{{showShare}}'>
+    <block wx:for="{{imgUrls}}" wx:key>
+      <swiper-item>
+        <image src="{{item.picture}}" class="slide-image" data-type='{{item.type}}' data-path='{{item.page}}' bindtap='detail' />
+      </swiper-item>
+    </block>
+  </swiper>
+  <!-- 步数秒杀 -->
+  <view class='runNumgo' wx:if='{{true}}'>
+    <!-- <text class='hint'>库存每日0点更新</text>   -->
+    <view class='gift_title'>
+      <image class='rect' src='../../images/rect.png'></image>
+      <!-- <text>{{test}}{{test1}}{{awardkey}}</text> -->
+      <text>今日限时兑换</text>
+    </view>
+    <view class='KOtitle'>
+      <image src='../../images/Timeover.png'></image>
+      <view class='KOtitleText' wx:if='{{timeEndkey==1}}'>
+        <view class='ending'>{{timestart==1?'距开始':'距结束'}}</view>
+        <view class='timeBox'>
+          <view class='timeBoxitem'>{{timeEnd.c}}</view><text>:</text><view class='timeBoxitem'>{{timeEnd.b}}</view><text>:</text><view class='timeBoxitem'>{{timeEnd.a}}</view>
+        </view>
+      </view>
+      <!-- <view>{{timeEndkey}}</view> -->
+      <view class='KOtitleText' style='font-size:22rpx;line-height:66rpx;text-align:center' 
+      wx:if='{{timeEndkey!=1}}'>{{timeEndkey==0?'今日秒杀即将开始':'今日秒杀已结束'}}</view>
+    </view>
+    <view class='KO'>
+      <view class='KO_time'>
+        <block  wx:for="{{timechange}}" wx:key="">
+          <view class='timeShow' bindtap='TimeChangeShow' data-text='{{index}}' data-type='{{item.type}}'>
+            <image class='timeShow_bg' src='../../images/{{item.type==1||item.showtime==1?"receive_action":"jijiangkaishi"}}.png' wx:if='{{item.type!=2}}'></image>
+            <image class='timeShow_bg' src='../../images/{{item.showtime==1?"receive_action":"jijiangkaishi"}}.png' wx:if='{{item.type!=2 && clickshow}}'></image>
+            <image class='timeNum' src='../../images/{{item.time==19?"19_00":item.time==20?"20_00":"23_00"}}.png'></image>
+            <image class='{{item.type==0?"timeType1":"timeType"}}' src='../../images/{{item.type==0?"startText":item.type==1?"now":"ending"}}.png'></image>
+          </view>
+          <view class='zhixiang' wx:if='{{index<2}}'>
+            <image src='../../images/{{item.type<2?"zhixiang_action":"_zhixiang"}}.png'></image>
+          </view>
+        </block>
+      </view>
+      <view class='KOShow'>
+        <block wx:for='{{changesList}}' wx:key="">
+          <view class='KOitem'>
+            <image src='{{item.picture}}' class='KOitem_image'></image>    
+            <view class='KOitem_text'>
+              <view class='h2'>{{item.title}}</view>
+              <view class='h3'>{{item.buy_type==1?'步数':'步步币'}}：{{item.buy_price.length>7?item.buy_price/10000+'万步':item.buy_price/1}}</view>
+              <view class='h4'>剩余：{{item.stock}}</view>
+            </view>
+            <form bindsubmit="formSubmit" report-submit='true' data-type='ms' style='z-index:1' wx:if='{{showChangeList == 0}}' data-text='index'>
+              <button class='change_button' form-type='submit' hover-class='none' bindtap='remind_ms'>
+                <image src='../../images/remind_me.png'></image>
+                <text>提醒我</text>
+              </button>
+            </form>
+            <view class='change_button' bindtap='exchange' data-id='{{item.id}}' data-text='{{index}}' data-step='{{item.buy_price}}' data-status='{{item.show_stock==0?"false":"true"}}' data-img='{{item.picture}}' data-title='{{item.title}}' data-type='{{item.stock}}'>
+              <image src='../../images/exchange_bg.png' wx:if="{{showChangeList!=2 && item.stock>0}}"></image>
+              <text>{{item.stock<1?'已抢光':showChangeList==2?'已结束':'立即兑换'}}</text>
+            </view>
+          </view>
+          <view class='isolation'></view>
+        </block>
+      </view>
+    </view>
+  </view>
+  <!-- 礼品列表  -->
+  <view class='gift'>
+    <view class='gift_title'>
+      <image class='rect' src='../../images/rect.png'></image>
+      <text>今日步数换礼</text>
+      <text class='hint'>库存每日0点更新</text>
+    </view>
+    
+    <view class='giftList'>
+      <block wx:for='{{giftList}}' wx:key>
+        <view class='giftItem'>
+          <image class='giftBg' src='../../images/giftBg.png'></image>
+          <view class='itemBox'>
+            <image src='{{item.picture}}'></image>
+            <view class='title'>{{item.title}}</view>
+            <view class='gift_detail'>
+              <view>步数：{{item.buy_price>=10000?item.step:item.buy_price}}</view>
+              <view>剩余：{{item.show_stock}}</view>
+            </view>
+            <view class='exchangeBtn' bindtap='exchange' data-id='{{item.id}}' data-step='{{item.buy_price}}' data-status='{{item.show_stock==0?"false":"true"}}' data-img='{{item.picture}}' data-title='{{item.title}}' data-show_stock='{{item.show_stock}}'>
+              <image src='{{item.show_stock==0?"../../images/over.png":"../../images/exchangeBg.png"}}'></image>
+              <view>{{item.show_stock==0?"已兑完":"立即兑换"}}</view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <ad unit-id="adunit-4131f7b78dca34d9"></ad>
+</view>
+
+<!-- 确认信息弹窗  -->
+<template is='confirm' wx:if='{{confirm}}'></template>
+<!-- 签到成功弹窗 -->
+<block wx:for='{{signinData}}' wx:key>
+  <template is='signin' wx:if='{{signin}}' data="{{...item}}"></template>
+</block>
+<!-- 规则说明弹窗  -->
+<block wx:for='{{ruleDecData}}' wx:key>
+  <template is='ruleDec' wx:if='{{ruleDec}}' data="{{...item}}"></template>
+</block>
+<!-- 首次登陆弹框广告  -->
+<view class='advBg' wx:if='{{advFlag}}' bindtap='stepClose'>
+  <view class='adv' bindtap='stepClose'>
+    <image src='../../images/adv{{advRandom+1}}.png'></image>
+    <image class='closeIco' src='../../images/exit.png' bindtap='stepClose'></image>
+  </view>
+</view>
+<!-- 立即兑换步数不足弹窗   -->
+<view class='hiddenBg' wx:if='{{numStep}}'>
+  <view class='numStepbg'>
+    <view class='numStep'>
+      <image src='../../images/numStep.png'></image>
+      <image class='closeIco' src='../../images/exit.png' bindtap='stepClose'></image>
+      <image class='goodsImg' src='{{numStepInfo.img}}'></image>
+      <view class='goodsinfo'>
+        <view>{{numStepInfo.title}}</view>
+        <view>{{numStepInfo.step}}</view>
+      </view>
+      <view class='myinfo'>
+        <view>我的步数</view>
+        <view>{{numStepInfo.myStep}}</view>
+      </view>
+      <view class='tips'>您当前步数不够</view>
+      <button class='getstep' hover-class='none' open-type='share'>
+        <image src='../../images/getstep.png'></image>
+      </button>
+    </view>
+  </view>
+</view>
+<!-- 手机号绑定信息弹窗  -->
+<template is='bandPhone' wx:if='{{confirmBandPhone}}' data="{{tips,sencods,sencodsFlag,phoneTips,codeTips,tipsCenter}}"></template>

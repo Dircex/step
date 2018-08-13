@@ -1,0 +1,17 @@
+
+<view class='ad_area_1'> 
+  <ad unit-id="adunit-9ab392610ff8b7c4" bindload='acc'></ad>
+</view> 
+
+<view class='friendListBox'>
+  <view class='friendList' >
+
+    <block wx:for='{{friendList}}' wx:key=''>
+      <view class='frienditem'>
+        <image src='{{item.avatar}}'></image>
+      </view>
+    </block> 
+
+  </view>
+</view>
+<view class='more' wx:if='{{friendList.length>20}}'>··· 加载更多 ···</view>

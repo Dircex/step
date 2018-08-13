@@ -1,0 +1,115 @@
+<!--index.wxml-->
+<!-- 引入模版结构 -->
+<import src="/template/template.wxml" />
+<view class="container">
+  <view class='main'>
+    <image src='../../images/mainBg.png' class='mainBg'></image>
+    <!-- 未赠送   -->
+    <view wx:if='{{presentBol}}'>
+      <!-- 我的步数球  -->
+      <view class='myStep'>
+        <image src='../../images/wave2.png'></image>
+        <view>{{myData.nickname}}</view>
+        <view>{{myData.myStep}}</view>
+        <view>我的步数</view>
+      </view>
+      <view class='friendStep'>
+        <image src='../../images/wave.png'></image>
+        <view>{{friengData.nickname}}</view>
+        <view>{{friengData.friendStep}}</view>
+        <view>TA的步数</view>
+      </view>
+      <!-- 赞助步数  -->
+      <view class='present'>赞助TA
+        <input type='number' bindinput='inputChange'></input>步数</view>
+      <view class='hint'>今日可赠
+        <text>{{give_step}}</text> 步，本月剩余
+        <text>{{week_count}}</text> 次
+      </view>
+      <view class='presentBtn' bindtap='presentBtn'>
+        <image src='../../images/present.png'></image>
+        <text>确认赠送</text>
+      </view>
+    </view>
+    <!-- 赠送 成功  -->
+    <view class='success' wx:else>
+      <image src='../../images/present_success.png'></image>
+      <view>赞助成功</view>
+      <view>友谊的小船又进了一步~</view>
+      <view class='presentBtn' bindtap='goIndex'>
+        <image src='../../images/present.png'></image>
+        <text> 我也要换礼</text>
+      </view>
+    </view>
+
+  </view>
+  <!-- 轮播图  -->
+  <swiper autoplay='true' circular='true' hidden='{{showShare}}'>
+    <block wx:for="{{imgUrls}}" wx:key>
+      <swiper-item>
+        <image src="{{item.picture}}" class="slide-image" data-type='{{item.type}}' data-path='{{item.page}}' bindtap='detail' />
+      </swiper-item>
+    </block>
+  </swiper>
+  <!-- 礼品列表  -->
+  <view class='gift'>
+    <view class='gift_title'>
+      <image class='rect' src='../../images/rect.png'></image>
+      <text>今日步数换礼</text>
+    </view>
+    <view class='giftList'>
+      <block wx:for='{{giftList}}' wx:key>
+        <view class='giftItem'>
+          <image class='giftBg' src='../../images/giftBg.png'></image>
+          <view class='itemBox'>
+            <image src='{{item.picture}}'></image>
+            <view class='title'>{{item.title}}</view>
+            <view class='gift_detail'>
+              <view>步数：{{item.buy_price>=10000?item.step:item.buy_price}}</view>
+              <view>剩余：{{item.show_stock}}</view>
+            </view>
+            <view class='exchangeBtn' bindtap='exchange' data-id='{{item.id}}' data-step='{{item.buy_price}}' data-status='{{item.show_stock==0?"false":"true"}}' data-img='{{item.picture}}' data-title='{{item.title}}' data-show_stock='{{item.show_stock}}'>
+              <image src='{{item.show_stock==0?"../../images/over.png":"../../images/exchangeBg.png"}}'></image>
+              <view>{{item.show_stock==0?"已兑完":"立即兑换"}}</view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>
+
+<!-- 确认信息弹窗  -->
+<template is='confirm' wx:if='{{confirm}}'></template>
+<!-- 签到成功弹窗 -->
+<block wx:for='{{signinData}}' wx:key>
+  <template is='signin' wx:if='{{signin}}' data="{{...item}}"></template>
+</block>
+<!-- 规则说明弹窗  -->
+<block wx:for='{{ruleDecData}}' wx:key>
+  <template is='ruleDec' wx:if='{{ruleDec}}' data="{{...item}}"></template>
+</block>
+<!-- 手机号绑定信息弹窗  -->
+<template is='bandPhone' wx:if='{{confirmBandPhone}}' data="{{tips,sencods,sencodsFlag,phoneTips,codeTips,tipsCenter}}"></template>
+<!-- 立即兑换步数不足弹窗   -->
+<view class='hiddenBg' wx:if='{{numStep}}'>
+  <view class='numStepbg'>
+    <view class='numStep'>
+      <image src='../../images/numStep.png'></image>
+      <image class='closeIco' src='../../images/exit.png' bindtap='stepClose'></image>
+      <image class='goodsImg' src='{{numStepInfo.img}}'></image>
+      <view class='goodsinfo'>
+        <view>{{numStepInfo.title}}</view>
+        <view>{{numStepInfo.step}}</view>
+      </view>
+      <view class='myinfo'>
+        <view>我的步数</view>
+        <view>{{numStepInfo.myStep}}</view>
+      </view>
+      <view class='tips'>您当前步数不够</view>
+      <button class='getstep' hover-class='none' open-type='share'>
+        <image src='../../images/getstep.png'></image>
+      </button>
+    </view>
+  </view>
+</view>

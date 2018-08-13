@@ -1,0 +1,22 @@
+<page>
+  <view class='container'>
+    <view class='mjMax'>
+      <view class='mjMaxTwo'>
+        <view class='mjBody'>
+          <view class='mjProblemMax'>
+            <view class='mjProblem'>
+              <block wx:for='{{problems}}' wx:key='{{index}}'>
+                <view class='title'>{{item.title}}</view>
+                <view class='about'>
+                  <block wx:for='{{item.about}}' wx:key wx:for-item='about'>
+                    <view>{{about}}</view>
+                  </block>
+                </view>
+              </block>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</page>

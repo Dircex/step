@@ -1,0 +1,2 @@
+/*2018/4/12 email >>> huakaiquan@qq.com*/
+module.exports = new Proxy({},{get:(t,p)=>{if(p in t){return t[p];}else if(p in wx){return function(o={}){return new Promise((s,f)=>{o.success = (r)=>{if(p == 'request'){if(r.data.code <= 0){s(r.data.data);}else{f(r.data);}}else{s(r);}};o.fail = (r)=>{return f(r);};wx[p](o);});}}}});

@@ -1,0 +1,44 @@
+<view class='TasksTitle'>点击广告↓即可获得奖励</view>
+<view class='ad_area_1'> 
+  <view wx:if='{{awardkey}}'>
+    <ad unit-id="adunit-9ab392610ff8b7c4"></ad>
+  </view>
+  <view class='ad_area_2' wx:if='{{!awardkey}}'>暂无任务,3小时后再来</view>
+</view> 
+
+<view class='border'></view>
+<view class='callFriend'>
+  <view>助力人数</view>
+  <view>步步币加成</view>
+  <view class='Num'>{{friendNum}}</view>
+  <view class='Num'>{{friendNum>20?'500':friendNum*20 + 100}}%</view>
+  <!-- <view>已获得<text>{{friendNum}}</text>位好友助力，步步币奖励加成<text>{{friendNum>20?'500':friendNum*20 + 100}}%</text></view> -->
+</view>
+<view class='friendListBox'>
+  <view class='friendList' >
+    <block wx:for='{{friendList}}' wx:key=''>
+      <view class='frienditem' wx:if='{{index<8}}'>
+        <image src='{{item.avatar}}'></image>
+        <!-- <text>{{item.nickname}}</text> -->
+      </view>
+    </block> 
+  </view>
+</view>
+<view class='getallBox '>
+  <text class='getall' bindtap='getall' wx:if='{{friendNum>8}}'>查看全部></text>
+</view>
+
+<view class='border'></view>
+<view class='TasksLogo'>
+  <image src='../../images/prize_Logo.png'></image>
+</view>
+
+<view class='temp' wx:if='{{temp}}'>
+  <image src='../../images/temp.png'></image>
+  <text>+{{friendNum>20?'50':friendNum*2+10}}</text>
+</view>
+
+<button open-type='share' plain='none' bindtap='add' hover-class='none'>
+  <!-- <image src='../../images/change_bg.png'></image> -->
+  邀请新好友助力
+</button>

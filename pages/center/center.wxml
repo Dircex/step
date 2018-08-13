@@ -1,0 +1,81 @@
+<!--pages/center/center.wxml-->
+<import src="/template/template.wxml" />
+
+<view class='content'>
+  <view class='userInfo'>
+    <view class='bd_phone' bindtap='bd_phone' wx:if='{{ttisShow}}'>
+      <image src='../../images/bd_phone.png'></image>
+      <text>绑定手机</text> 
+    </view>
+    <image src='../../images/centerBg.png'></image>
+    <open-data type="userAvatarUrl" background-size="cover" class='avatar'></open-data>
+    <open-data class="nickname" type="userNickName"></open-data>
+    <view class='info'>
+      <view>步步币:
+        <text>{{info.bi}}</text>
+      </view>
+      <view>连续签到:
+        <text>{{info.continuity}}</text>
+      </view>
+      <view>七日邀请:
+        <text>{{info.invite}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='list'>
+    <button class='item' open-type='getUserInfo' bindgetuserinfo='myEx' hover-class='none'>
+      <image class='myEx' src='../../images/myEx.png'></image>
+      <view>我的兑换</view>
+    </button>
+    <view class='item' bindtap='strategy' hidden='{{showShare}}'>
+      <image class='strategy' src='../../images/strategy.png'></image>
+      <view>赚步攻略</view>
+    </view>
+    <button class='item' open-type='getUserInfo' bindgetuserinfo='punch' hover-class='none'>
+      <image class='punch' src='../../images/punch.png'></image>
+      <view>运动打卡</view>
+    </button>
+  </view>
+  <view class='centerList'>
+    <button class='centerItem line' open-type='getUserInfo' bindgetuserinfo='getRecord'>
+      <view class='img'>
+        <image class='record' src='../../images/record.png'></image>
+      </view>
+      <text class='text'>步步记录</text>
+      <image class='jian' src='../../images/jian.png'></image>
+    </button>
+    <button class='centerItem line' open-type='getUserInfo' bindgetuserinfo='myJoin'>
+      <view class='img'>
+        <image class='record' src='../../images/join.png'></image>
+      </view>
+      <text class='text'>抽奖记录</text>
+      <image class='jian' src='../../images/jian.png'></image>
+    </button>
+    <button class='centerItem line' open-type='getUserInfo' bindgetuserinfo='getAddress'>
+      <view class='img'>
+        <image class='address' src='../../images/address.png'></image>
+      </view>
+      <text class='text'>收货地址</text>
+      <image class='jian' src='../../images/jian.png'></image>
+    </button>
+    <view class='centerItem line' bindtap='problem'>
+      <view class='img'>
+        <image class='problem' src='../../images/problem.png'></image>
+      </view>
+      <text class='text'>常见问题</text>
+      <image class='jian' src='../../images/jian.png'></image>
+    </view>
+    <button class='centerItem' open-type='contact'>
+      <view class='img'>
+        <image class='contact' src='../../images/contact.png'></image>
+      </view>
+      <text class='text'>联系我们</text>
+      <image class='jian' src='../../images/jian.png'></image>
+    </button>
+  </view>
+  <!-- <view class='centerItem' bindtap='contact'>
+  </view> -->
+  <ad unit-id="adunit-4e918aa2c27b6e73"></ad>
+</view>
+<!-- 手机号绑定信息弹窗  -->
+<template is='bandPhone' wx:if='{{confirmBandPhone}}' data="{{tips,sencods,sencodsFlag,phoneTips,codeTips,tipsCenter}}"></template>

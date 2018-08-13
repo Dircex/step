@@ -1,0 +1,44 @@
+<!--pages/myExchange/myExchange.wxml-->
+<view class='container'>
+  <view class='main'>
+    <view class='btn'>
+      <view class='wait {{sign=="wait"?"active":""}}' bindtap='wait'>
+        <image src='{{sign=="wait"?"../../images/exchangeBg.png":"../../images/delivery.png"}}'></image>
+        <text>等待发货</text>
+      </view>
+      <view class='delivery {{sign=="delivery"?"active":""}}' bindtap='delivery'>
+        <image src='{{sign=="delivery"?"../../images/exchangeBg.png":"../../images/delivery.png"}}'></image>
+        <text>已发货</text>
+      </view>
+    <text class='tips'>兑换商品会在7个工作日内发货</text>
+    </view>
+    <view class='content'>
+      <!--等待发货 列表  -->
+      <view class='list' wx:if='{{sign=="wait"}}'>
+        <view class='empty' wx:if='{{waitBol}}'>暂无~</view>
+        <block wx:for='{{waitList}}' wx:key>
+          <view class='item'>
+            <image src='{{item.picture}}'></image>
+            <view class='item_info'>
+              <view>{{item.title}}</view>
+              <view>{{item.create_time}}</view>
+            </view>
+          </view>
+        </block>
+      </view>
+      <!--已发货 列表  -->
+      <view class='list' wx:if='{{sign=="delivery"}}'>
+        <view class='empty' wx:if='{{deliveryBol}}'>暂无~</view>
+        <block wx:for='{{deliveryList}}' wx:key>
+          <view class='item'>
+            <image src='{{item.picture}}'></image>
+            <view class='item_info'>
+              <view>{{item.title}}</view>
+              <view>{{item.create_time}}</view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>

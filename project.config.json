@@ -1,0 +1,71 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.2.1",
+	"appid": "wx5d2071f737efbc59",
+	"projectname": "step",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 0,
+			"list": [
+				{
+					"id": 0,
+					"name": "赠送步数",
+					"pathName": "pages/index/index",
+					"query": "uid=371"
+				},
+				{
+					"id": 1,
+					"name": "邀请助力",
+					"pathName": "pages/index/index",
+					"query": "id=1&share=314"
+				},
+				{
+					"id": 2,
+					"name": "活动结束",
+					"pathName": "pages/lotteryDetail/lotteryDetail",
+					"query": "id=1&sign=2"
+				},
+				{
+					"id": 3,
+					"name": "小程序",
+					"pathName": "pages/index/index",
+					"query": "id=7&share=64710&timestamp=1533260947443"
+				},
+				{
+					"id": 4,
+					"name": "公众号",
+					"pathName": "pages/index/index",
+					"query": "share=FromPublic&timestamp=1533176014460"
+				}
+			]
+		}
+	}
+}

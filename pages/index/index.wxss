@@ -1,0 +1,686 @@
+/**index.wxss**/
+@import "/template/template.wxss";
+
+.spinner {
+  margin: 0 auto;
+  width: 100rpx;
+  height: 50rpx;
+  text-align: center;
+  font-size: 10px;
+  margin-top: -80rpx;
+  margin-bottom: 30rpx;
+}
+
+.spinner > view {
+  margin: 0 4rpx;
+  background-color: #17bac9;
+  height: 100%;
+  width: 6px;
+  display: inline-block;
+  -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
+  animation: stretchdelay 1.2s infinite ease-in-out;
+}
+
+.spinner .rect2 {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s;
+}
+
+.spinner .rect3 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+.spinner .rect4 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+
+.spinner .rect5 {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s;
+}
+
+@-webkit-keyframes stretchdelay {
+  0%, 40%, 100% {
+    -webkit-transform: scaleY(0.4);
+  }
+
+  20% {
+    -webkit-transform: scaleY(1.0);
+  }
+}
+
+@keyframes stretchdelay {
+  0%, 40%, 100% {
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+  }
+
+  20% {
+    transform: scaleY(1.0);
+    -webkit-transform: scaleY(1.0);
+  }
+}
+
+.main {
+  width: 750rpx;
+  height: 614rpx;
+  position: relative;
+}
+
+.mainBg {
+  width: 750rpx;
+  height: 614rpx;
+}
+
+.login {
+  background-color: #17bac9;
+  font-size: 32rpx;
+  color: white;
+  display: inline-block;
+  padding: 6rpx 10rpx;
+  margin-top: 50%;
+  transform: translateY(-50%);
+  border-radius: 10rpx;
+  position: relative;
+}
+
+.big {
+  width: 375rpx;
+  height: 375rpx;
+  border-radius: 50%;
+  box-sizing: border-box;
+  position: absolute;
+  top: 20rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.rule {
+  font-size: 24rpx;
+  color: white;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 170rpx;
+  /* z-index: 10; */
+}
+
+.ballBg {
+  width: 375rpx;
+  height: 375rpx;
+}
+
+.ballBox {
+  width: 318rpx;
+  height: 318rpx;
+  border-radius: 50%;
+  position: absolute;
+  left: 28rpx;
+  top: 28rpx;
+  background-color: white;
+  box-shadow: 0px 0px 3px 3px rgba(0, 134, 139, 0.2);
+  overflow: hidden;
+}
+
+.stepBox {
+  padding-top: 64rpx;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+}
+
+.stepBox view:first-child {
+  font-size: 28rpx;
+  color: #464646;
+}
+
+.stepNumber {
+  font-size: 70rpx;
+  color: #10858c;
+  font-family: 'FZPHFW';
+  margin-top: 20rpx;
+}
+
+.stepBox view:last-child {
+  font-size: 20rpx;
+  color: #7a7a7a;
+  margin-top: 20rpx;
+}
+
+.daily {
+  width: 150rpx;
+  height: 150rpx;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.daily_con {
+  width: 98rpx;
+  height: 98rpx;
+  position: absolute;
+  left: 30rpx;
+  top: 60rpx;
+}
+
+.bubble {
+  width: 98rpx;
+  height: 98rpx;
+  position: relative;
+  z-index: 10;
+}
+
+.gold {
+  width: 50rpx;
+  height: 49rpx;
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  transform: translateX(-50%);
+}
+
+.daily_con>view {
+  width: 100%;
+  font-size: 28rpx;
+  color: white;
+  position: absolute;
+  bottom: 6rpx;
+  text-align: center;
+}
+
+.daily_text {
+  width: 96rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: white;
+  position: absolute;
+  top: 160rpx;
+  left: 20%;
+}
+
+.share {
+  position: absolute;
+  right: 0;
+  top: 60rpx;
+}
+
+.shareBg {
+  width: 99rpx;
+  height: 60rpx;
+}
+
+.shareImg {
+  width: 49rpx;
+  height: 49rpx;
+  position: absolute;
+  left: 10rpx;
+  top: 6rpx;
+}
+
+.stepDetail {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  left: 10%;
+  bottom: 170rpx;
+  color: white;
+}
+
+.stepDetail>view {
+  text-align: center;
+}
+
+.stepDetail>view>view:first-child {
+  font-size: 24rpx;
+}
+
+.stepDetail>view>view:last-child {
+  font-size: 28rpx;
+  border: 1px solid white;
+  border-radius: 30rpx;
+  padding: 0 30rpx;
+  margin-top: 6rpx;
+}
+
+.invite {
+  width: 438rpx;
+  height: 128rpx;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 10rpx;
+}
+
+.invite image {
+  width: 438rpx;
+  height: 128rpx;
+}
+
+.invite view {
+  width: 100%;
+  position: absolute;
+  top: 24%;
+  left: 0;
+  text-align: center;
+  color: #78420d;
+}
+
+swiper {
+  width: 100%;
+  height: 136rpx;
+}
+
+swiper image {
+  width: 100%;
+  height: 100%;
+}
+
+.gift {
+  padding: 15rpx 0;
+  box-sizing: border-box;
+  width: 100%;
+  padding-bottom: 0;
+}
+
+.gift_title {
+  margin: 5rpx 0 10rpx 20rpx;
+  box-sizing: border-box;
+}
+
+.gift_title text {
+  color: #2e2e2e;
+  font-size: 36rpx;
+  margin: 14rpx 0 10rpx 10rpx;
+  display: inline-block;
+  vertical-align: middle;
+  font-weight: bold;
+}
+
+.gift_title .hint {
+  color: lightgray;
+  font-size: 24rpx;
+  margin-right: 20rpx;
+  float: right;
+  margin-top: 16rpx;
+}
+
+.rect {
+  width: 11rpx;
+  height: 35rpx;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.giftBg {
+  width: 365rpx;
+  height: 578rpx;
+}
+
+.giftItem {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  width: 50%;
+}
+
+.itemBox {
+  width: 92%;
+  height: 100%;
+  position: absolute;
+  left: 4%;
+  top: 0;
+}
+
+.itemBox>image {
+  width: 336rpx;
+  height: 336rpx;
+  margin-top: 14rpx;
+}
+
+.title {
+  width: 90%;
+  color: #292929;
+  font-size: 26rpx;
+  font-weight: bold;
+  margin-left: 5%;
+  margin-bottom: 15rpx;
+  text-align: left;
+}
+
+.gift_detail {
+  width: 90%;
+  margin-left: 5%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 26rpx;
+  color: #c1c1c1;
+}
+
+.gift_detail>view:first-child {
+  color: #5fd0e2;
+}
+
+.exchangeBtn {
+  width: 198rpx;
+  height: 62rpx;
+  position: absolute;
+  left: 50%;
+  bottom: 46rpx;
+  transform: translateX(-50%);
+}
+
+.exchangeBtn image {
+  width: 198rpx;
+  height: 62rpx;
+}
+
+.exchangeBtn view {
+  width: 100%;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 28rpx;
+  color: white;
+}
+
+.gifBox {
+  width: 382rpx;
+  height: 370rpx;
+  position: absolute;
+  left: 0;
+  bottom: -174px;
+}
+
+.gifBox image {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.gifBox image:first-child {
+  top: -20rpx;
+}
+
+/* 首页登陆广告弹框 */
+
+.advBg {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0%;
+  z-index: 500;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.adv {
+  position: fixed;
+  top: 17%;
+  left: 18%;
+  z-index: 500;
+}
+
+.adv image {
+  width: 495rpx;
+  height: 635rpx;
+  border-radius: 11rpx;
+}
+
+.adv .closeIco {
+  width: 50rpx;
+  height: 139rpx;
+  z-index: 5;
+  position: absolute;
+  left: 61%;
+  top: 98%;
+  border-radius: 0rpx;
+}
+
+
+
+/* 步数秒杀 */
+/* pages/Timechange/Timechange.wxss */
+.runNumgo {
+  position: relative;
+  width: 100%;
+}
+
+.runNumgo .gift_title {
+  margin-top: 30rpx;
+  width: 60%;
+}
+
+.runNumgo image {
+  width: 100%;
+  height: 100%;
+}
+
+.timeShow_bg {
+  position: absolute;
+  top: 0; left: 0;
+}
+
+.runNumgo .rect {
+  width:11rpx;
+  height:35rpx;
+}
+
+.body{
+  width: 100%;
+  padding: 0 18rpx;
+  box-sizing: border-box;
+}
+
+.KO {
+  overflow: hidden;
+  padding: 0 20rpx;
+}
+
+.KOtitle {
+  width: 202rpx;
+  height: 67rpx;
+  position: absolute;
+  top: 34rpx;
+  right: 0;
+  z-index: 2;
+  font-size: 22rpx;
+  color: #fff;
+}
+
+.KOtitle .KOtitleText {
+  position: absolute;
+  top: 0; right: 0;
+  width: 90%;
+  height: 100%;
+  font-size: 18rpx;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: space-around; */
+  align-items: center;
+}
+
+.KOtitleText .ending {
+  padding: 0 20rpx;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: right;
+  letter-spacing: 2rpx;
+}
+
+.timeBox {
+  width: 80%;
+  display: flex;
+  padding-left: 20rpx;
+  padding-top: 4rpx;
+  /* justify-content: space-around; */
+  align-items: center;
+}
+
+.timeBox text {
+  width: 18rpx;
+  text-align: center;
+}
+
+.timeBoxitem {
+  padding: 0;
+  width: 34rpx;
+  height: 34rpx;
+  font-size: 24rpx;
+  background-color: #fff;
+  border-radius: 4rpx;
+  color: #EC7922;
+  text-align: center;
+  line-height: 34rpx;
+}
+
+.KO_time {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.KO_time text{
+  position: absolute;
+  bottom: 36%;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  font-size: 34rpx;
+}
+
+.zhixiang {
+  width: 15rpx;
+  height: 22rpx;
+  position: relative;
+}
+
+.zhixiang image{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.runNumgo .timeShow {
+  width: 210rpx;
+  height: 77rpx;
+  position: relative;
+  background-color: #D2D2D2;
+  border-radius: 10rpx;
+}
+.runNumgo {
+  padding-top: 6rpx;
+  border-top: 8rpx solid #FCFAFA;
+  border-bottom: 8rpx solid #FCFAFA;
+}
+
+.runNumgo .timeNum {
+  width: 80rpx;
+  height: 26rpx;
+  position: absolute;
+  bottom: 52%; left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+}
+
+.runNumgo .timeType {
+  width: 58rpx;
+  height: 19rpx;
+  position: absolute;
+  top: 60%; left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+}
+
+.runNumgo .timeType1 {
+  width: 79rpx;
+  height: 19rpx;
+  position: absolute;
+  top: 60%; left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+}
+
+
+.KOShow {
+  overflow: hidden;
+}
+
+.KOitem {
+  display: flex;
+  justify-content: flex-start;
+  padding: 38rpx 0;
+  position: relative;
+}
+
+.KOitem .KOitem_image {
+  width: 224rpx;
+  height: 216rpx;
+  background-color: #ccc
+}
+
+.KOitem_text {
+  width: 62%;
+  margin-left: 40rpx;
+  padding-top: 8rpx;
+  padding-bottom: 10rpx;
+}
+
+.KOitem_text .h2 {
+  width: 100%;
+  height: 100rpx;
+  font-size: 34rpx;
+  line-height: 48rpx;
+  font-weight: bold;
+}
+
+.KOitem_text .h3 {
+  font-size: 30rpx;
+  color: #5FD0E2;
+  margin: 4% 0 2%;
+}
+
+.KOitem_text .h4 {
+  font-size: 28rpx;
+  color: #C1C1C1;
+}
+
+.KOitem .change_button {
+  width: 198rpx;
+  height: 62rpx;
+  position: absolute;
+  right: 1%;
+  bottom: 15%;
+  background-color: #ccc;
+  border-radius: 31rpx;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  color: #fff;
+}
+
+.KOitem .change_button text {
+  width: 100%;
+  position: absolute;
+  top: 0; left: 0;
+  text-align: center;
+  line-height: 60rpx;
+  font-size: 26rpx;
+}
+.isolation {
+  width: 100%;
+  height: 2rpx;
+  background-color: #F2F2F2;
+}

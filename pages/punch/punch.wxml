@@ -1,0 +1,28 @@
+<!--pages/punch/punch.wxml-->
+<view class='container'>
+  <canvas canvas-id='shareImg' class='ctx'></canvas>
+  <view class='change' bindtap='change'>
+    <image src='../../images/change.png'></image>
+    <text>换一个</text>
+  </view>
+  <view class='btn' hidden='{{showShare}}'>
+    <form bindsubmit="formSubmit" report-submit='true'>
+      <button open-type='share' form-type='submit' hover-class='none'>
+        <image src='../../images/share_.png'></image>
+        <!-- <text>分享好友或群</text> -->
+      </button>
+      <button bindtap='saveImg' form-type='submit' hover-class='none'>
+        <image src='../../images/saveImg.png'></image>
+        <!-- <text>保存图片去分享</text> -->
+      </button>
+    </form>
+  </view>
+  <view class='hint' hidden='{{showShare}}'>每邀请1个好友奖励5步步币哦~</view>
+  <view class='remind' bindtap='remind'>
+    <view>
+      <image src='../../images/circle.png' class='circle'></image>
+      <image src='../../images/gou.png' class='gou' wx:if='{{checked}}'></image>
+    </view>
+    <text>明天提醒我签到哦~</text>
+  </view>
+</view>

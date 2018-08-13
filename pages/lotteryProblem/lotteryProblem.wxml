@@ -1,0 +1,14 @@
+<!--pages/problem/problem.wxml-->
+
+<view class='content'>
+
+  <block wx:for='{{problems}}' wx:key wx:for-index='index'>
+    <view class='item' data-id="{{index}}" bindtap='bindtap'>
+      <view class='title'>
+        <text class='text'>{{item.title}}</text>
+        <image src='{{active==index?"../../images/jian_top.png":"../../images/jian_bottom.png"}}'></image>
+      </view>
+      <view class='about' wx:if='{{active==index}}'>{{item.about}}</view>
+    </view>
+  </block>
+</view>
